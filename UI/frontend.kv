@@ -1,0 +1,1352 @@
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+<DrawerClickableItem@MDNavigationDrawerItem>
+
+<DrawerLabelItem@MDNavigationDrawerItem>
+    
+<MyNavigationDrawer@MDNavigationDrawer>
+
+
+ScreenManager:
+    transition: NoTransition()
+    Main:
+        name: 'main'
+    Posibilyty_calc:
+        name: 'posibility_calc_screen'
+    Setting:
+        name: 'setting'
+
+    Characters:
+        name: 'characters'
+    Child:
+        name: 'child'
+    Acne: 
+        name: 'acne'
+    Women:
+        name: 'women'
+    Man:
+        name: 'man'
+    Learn:
+        name: 'learn'
+    Battle:
+        name: 'battle'
+
+    Shy:
+        name: 'shy'
+    Otism: 
+        name: 'otism'
+    Asperger:
+        name: 'asperger'
+    Schizoid:
+        name: 'schizoid'
+    Agresive:
+        name: 'agresive'
+    Paranoid: 
+        name: 'paranoid'
+    Histrionic:
+        name: 'histrionic'
+    Narcissism:
+        name: 'narcissism'
+    Mazochism: 
+        name: 'mazochism'
+    Depresive: 
+        name: 'depresive'
+    Antisocial:
+        name: 'antisocial'
+    Compulsive:
+        name: 'compulsive'
+    Borderline:
+        name: 'borderline'
+    Dependent:
+        name: 'dependent'
+    
+    
+<Main>:
+    
+    MDScreen:
+        id: main_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:            
+            MDScreen:                
+    
+                MDNavigationLayout:
+
+                MDTopAppBar:
+                    id: top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: .8
+
+                    MDBoxLayout:
+                        id: top_list
+                        orientation: 'horizontal'                        
+
+                        MDTextField:
+                            id: main_search
+                            icon_left: 'magnify'
+                            theme_text_color: 'Custom'
+                            text_color_normal: (.85, .85, .85 ,1)
+                            text_color_focus: (1, 1, 1, 1)
+                            line_color_focus: (.95, .95, .95, 1)
+                            line_color_normal: (.85, .85, .85, 1) 
+                            icon_left_color_focus: (1, 1, 1, 1)
+                            icon_left_color_normal: (1, 1, 1, 1)
+                            on_touch_down: app.find_word() 
+
+                        MDIconButton:
+                            icon: 'star-outline'
+                            icon_size: '20sp'
+                            icon_color: (1, 1 ,1, 1)
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            on_release: root.get_favorites()
+
+                        MDIconButton:
+                            icon: 'globe-model'
+                            icon_size: '20sp'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1) 
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    padding: [10, 65, 10, 10]
+                    spacing: dp(10)
+
+                    MDScrollView:
+                        do_scroll_x: False
+                        do_scroll_y: True
+                        
+                        MDList:
+                            id: mother_lists
+
+
+        MyNavigationDrawer:
+            id: nav_drawer_0
+            radius: 0
+
+            MDNavigationDrawerMenu:
+
+                MDNavigationDrawerLabel:
+
+                DrawerClickableItem:
+                    id: main_drawer_id_0
+                    icon: 'brain'
+                    text: 'Psihologiya'
+                    on_enter: app.enter_hover(self)
+                    on_leave: app.leave_hover(self)
+                    on_press: root.manager.current='main'                    
+
+                DrawerClickableItem:
+                    id: main_drawer_id_1
+                    icon: 'calculator'
+                    text: 'Hasapla'
+                    on_enter: app.enter_hover(self)
+                    on_leave: app.leave_hover(self)
+                    on_press: root.manager.current= 'posibility_calc_screen'
+
+                MDNavigationDrawerDivider:
+                    
+                DrawerLabelItem:
+                    id: main_drawer_id_2
+                    icon: 'cog'
+                    text: 'Sazlamalar'
+                    on_enter: app.enter_hover(self)
+                    on_leave: app.leave_hover(self)
+                    on_press: root.manager.current= 'setting'
+
+                DrawerLabelItem:
+                    id: main_drawer_id_3
+                    text: 'Maglumat'
+                    icon: 'information-outline'
+                    on_enter: app.enter_hover(self)
+                    on_leave: app.leave_hover(self)
+
+<Posibilyty_calc>:
+    
+    MDScreen:
+        id: posibility_calc_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: calc_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDTextField:
+                            icon_left: 'magnify'
+                            hint_text: 'Gozleg'
+                            text_color_normal: (1, 1, 1 ,1)
+                            text_color_focus: (1, 1, 1, 1)
+                            line_color_focus: (.95, .95, .95, 1)
+                            line_color_normal: (.95, .95, .95, 1) 
+                            hint_text_color_normal: (.85, .85, .85, 1)
+                            icon_left_color_focus: (1, 1, 1, 1)
+                            icon_left_color_normal: (1, 1, 1, 1)
+                            on_touch_down: app.find_word(*args)
+
+                        MDIconButton:
+                            icon: 'form-textarea'
+                            icon_size: '20sp'
+                            icon_color: (1, 1, 1, 1)
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+
+                        MDIconButton:
+                            icon: 'globe-model'
+                            icon_size: '20sp'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                        
+
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    
+                    MDIconButton:
+                        padding: '10dp'
+                        icon: 'restore'
+                        pos_hint: {'center_x': .1, 'center_y': .85}
+                        on_release: root.reset_button(self)
+
+                MDScrollView:
+                    pos_hint: {'center_x': .5, 'center_y': .32}
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    MDList:
+                        height: self.minimum_height
+                        size_hint_y: None
+                        bar_width: 20
+
+                                                        
+                        MDGridLayout:
+                            size_hint_y: None
+                            height: self.minimum_height
+                            cols: 0
+                            rows: 25
+                            spacing: '60dp'
+                            padding: '20dp'
+
+                            MDLabel:
+                                id: label_c
+                                padding: '1dp', '55dp', '1dp', '1dp'
+                                text: '1. Ise bolan ukybynyz barada gysgaca maglumat girizin.'
+                                pos_hint: {'center_x': .01}
+                                font_size: 13
+
+                        
+                            MDCard:
+                                id: user_input_card_c
+                                size_hint: .95, None
+                                radius: [15, 15, 15, 15]
+                                md_bg_color: 0.90, 0.90, 0.90, 1 
+                                padding: '10dp', '10dp', '10dp', '10dp'
+                                pos_hint: {'center_x': .5, 'center_y': 0}
+
+                                MDBoxLayout:
+                                    orientation: 'vertical'
+
+                                    MDIconButton:
+                                        id: input_card_head
+                                        icon: 'dots-horizontal'
+                                        pos_hint: {'center_x': .95}
+                                        on_release: pass
+
+
+                                
+                                    TextInput:
+                                        id: user_input_text_c
+                                        hint_text: "..."
+                                        text: ''
+                                        background_color: 0, 0, 0, 0
+                                        halign: "left"
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 0, 1 
+                                        multiline: True
+                                        font_size: '16sp'
+
+                                    
+                
+                            MDLabel:
+                                id: label_d
+                                padding: '1dp', '55dp', '1dp', '1dp'
+                                text: '2. Is basaranyksyzlygy barada gysgaca maglumat girizin.'
+                                pos_hint: {'center_x': .01}
+                                font_size: 13
+
+                        
+                            MDCard:
+                                id: user_input_card_d
+                                size_hint: .95, None
+                                radius: [15, 15, 15, 15]
+                                md_bg_color: 0.90, 0.90, 0.90, 1 
+                                padding: '10dp', '10dp', '10dp', '10dp'
+                                pos_hint: {'center_x': .5, 'center_y': 0}
+
+                                MDBoxLayout:
+                                    orientation: 'vertical'
+
+                                    MDIconButton:
+                                        id: input_card_head
+                                        icon: 'dots-horizontal'
+                                        pos_hint: {'center_x': .95}
+                                        on_release: pass
+
+
+                                
+                                    TextInput:
+                                        id: user_input_text_d
+                                        hint_text: "..."
+                                        text: ''
+                                        background_color: 0, 0, 0, 0
+                                        halign: "left"
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 0, 1 
+                                        multiline: True
+                                        font_size: '16sp'
+                            
+                            MDLabel:
+                                id: label_e
+                                padding: '1dp', '55dp', '1dp', '1dp'
+                                text: '3. Isin gowy manyda tasirleyyijisi barada gysgaca maglumat girizin.'
+                                pos_hint: {'center_x': .01}
+                                font_size: 13
+
+                        
+                            MDCard:
+                                id: user_input_card_e
+                                size_hint: .95, None
+                                radius: [15, 15, 15, 15]
+                                md_bg_color: 0.90, 0.90, 0.90, 1 
+                                padding: '10dp', '10dp', '10dp', '10dp'
+                                pos_hint: {'center_x': .5, 'center_y': 0}
+
+                                MDBoxLayout:
+                                    orientation: 'vertical'
+
+                                    MDIconButton:
+                                        id: input_card_head
+                                        icon: 'dots-horizontal'
+                                        pos_hint: {'center_x': .95}
+                                        on_release: pass
+
+                            
+                                
+                                    TextInput:
+                                        id: user_input_text_e
+                                        hint_text: "..."
+                                        text: ''
+                                        background_color: 0, 0, 0, 0
+                                        halign: "left"
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 0, 1 
+                                        multiline: True
+                                        font_size: '16sp'
+
+                            MDLabel:
+                                id: second_label_e
+                                padding: '1dp', '55dp', '1dp', '1dp'
+                                text: 'Tasirleyijinin mohumligini 0-10 aralygyndaky bitin san bilen beyan edin.'
+                                font_size: 13
+
+                            MDTextField:
+                                id: second_text_input_e
+                                disabled: False
+                                size_hint: .4, None
+
+                            MDLabel:
+                                id: label_f
+                                padding: '1dp', '55dp', '1dp', '1dp'
+                                text: '4. Isin erbet manyda tasirleyyijisi barada gysgaca maglumat girizin.'
+                                pos_hint: {'center_x': .01}
+                                font_size: 13
+
+                        
+                            MDCard:
+                                id: user_input_card_f
+                                size_hint: .95, None
+                                radius: [15, 15, 15, 15]
+                                md_bg_color: 0.90, 0.90, 0.90, 1 
+                                padding: '10dp', '10dp', '10dp', '10dp'
+                                pos_hint: {'center_x': .5, 'center_y': 0}
+
+                                MDBoxLayout:
+                                    orientation: 'vertical'
+
+                                    MDIconButton:
+                                        id: input_card_head
+                                        icon: 'dots-horizontal'
+                                        pos_hint: {'center_x': .95}
+                                        on_release: pass
+                                    
+                                    
+
+                                    TextInput:
+                                        id: user_input_text_f
+                                        hint_text: "..."
+                                        text: ''
+                                        background_color: 0, 0, 0, 0
+                                        halign: "left"
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 0, 1 
+                                        multiline: True
+                                        font_size: '16sp'
+                            
+                            MDLabel:
+                                id: second_label_f
+                                padding: '1dp', '55dp', '1dp', '1dp'
+                                text: 'Tasirleyijinin mohumligini 0-10 aralygyndaky bitin san bilen beyan edin.'
+                                font_size: 13
+
+                            MDTextField:
+                                id: second_text_input_f
+                                disabled: False
+                                size_hint:.4, None
+                                
+
+                            
+                            MDLabel:
+                                text: 'Isi etmage bolan islegi:'
+
+                            MDTextButton:
+                                id: x_info
+                                text: 'Derejelendir'
+                                pos_hint: {'center_x': .3}    
+                                on_release: root.open_x_menu()
+
+                            MDLabel:
+                                text: 'Isi etmage bolan islegsizlik:'
+
+                            MDTextButton:
+                                id: y_info
+                                text: 'Derejelendir'
+                                pos_hint: {'center_x': .3}    
+                                on_release: root.open_y_menu()   
+
+                            MDLabel:
+                                text: 'Towekgel goterimini belle (risk)'
+
+                            MDTextButton:
+                                id: z_info
+                                text: '0%'
+                                pos_hint: {'center_x': .3}    
+                                on_release: root.open_z_menu()
+
+
+                            MDLabel:
+                                text: 'Is ucin gerekli bolan akyl saglygy we bedeni saglyk'
+
+                            MDBoxLayout:
+                                orientation: 'horizontal'
+                                spacing: dp(80)
+
+                                MDTextButton:
+                                    id: head_info
+                                    text: 'Belgile'
+                                    pos_hint: {'center_x': .3}
+                                    on_release: root.head()
+
+                                MDTextButton:
+                                    id: body_info
+                                    text: 'Belgile'
+                                    pos_hint: {'center_x': .8}
+                                    on_release: root.body()
+                                                     
+
+                MDTopAppBar:
+                    id: calc_bottom_app_bar
+                    pos_hint: {'bottom': 1}
+                    elevation: 0                    
+                        
+                    MDIconButton:
+                        icon: 'send'
+                        on_release: root.control(self)
+                        pos_hint: {'center_x': .96}
+
+        MyNavigationDrawer:
+            id: nav_drawer_1
+            radius: 0
+
+            MDNavigationDrawerMenu:
+
+                MDNavigationDrawerLabel:
+
+                DrawerClickableItem:
+                    id: calc_drawer_id_0
+                    icon: 'brain'
+                    text: 'Psihologiya'
+                    on_enter: app.enter_hover(self)
+                    on_leave: app.leave_hover(self)
+                    on_press: root.manager.current= 'main'    
+
+                DrawerClickableItem:
+                    id: calc_drawer_id_1
+                    icon: 'calculator'
+                    text: 'Hasapla'
+                    on_enter: app.enter_hover(self)
+                    on_leave: app.leave_hover(self)
+                    on_press: root.manager.current= 'posibility_calc_screen'
+
+                
+                DrawerLabelItem:
+                    id: calc_drawer_id_2
+                    icon: 'cog'
+                    text: 'Sazlamalar'
+                    on_enter: app.enter_hover(self)
+                    on_leave: app.leave_hover(self)
+
+                DrawerLabelItem:
+                    id: calc_drawer_id_3
+                    text: 'Maglumat'
+                    icon: 'information-outline'
+                    on_enter: app.enter_hover(self)
+                    on_leave: app.leave_hover(self)
+
+                MDNavigationDrawerDivider:
+
+                MDNavigationDrawerLabel: 
+                    text: 'Tema'
+
+
+<Setting>:
+    MDScreen:
+        id: characters_calc_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: characters_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_main()
+
+                MDScrollView:
+                    size_hint_y: .89
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    MDList:
+                        size_hint_y: None
+                        height: self.minimum_height
+
+                        OneLineListItem:                        
+                            MDGridLayout:
+                                cols: 5
+                                rows: 0
+
+                                MDIconButton:
+                                    icon: 'access-point'
+                                    theme_text_color: 'Custom'
+                                    text_color: 'green'
+                                    icon_size: '20sp'
+                                    on_release: app.set_color(*args)
+
+
+                                MDIconButton:
+                                    icon: 'ruler'
+                                    theme_text_color: 'Custom'
+                                    text_color: 'red'
+                                    icon_size: '20sp'
+                                    on_release: app.set_color(*args)
+
+
+                                MDIconButton:
+                                    icon: 'access-point'
+                                    theme_text_color: 'Custom'
+                                    text_color: 'purple'
+                                    icon_size: '20sp'
+                                    on_release: app.set_color(*args)
+
+
+                                MDIconButton:
+                                    icon: 'access-point'
+                                    theme_text_color: 'Custom'
+                                    text_color: 'blue'
+                                    icon_size: '20sp'
+                                    on_release: app.set_color(*args)
+
+
+                                MDIconButton:
+                                    icon: 'access-point'
+                                    theme_text_color: 'Custom'
+                                    text_color: 'orange'
+                                    icon_size: '20sp'
+                                    on_release: app.set_color(*args)
+
+
+<Characters>:
+    MDScreen:
+        id: characters_calc_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: characters_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_main()
+
+                MDScrollView:
+                    pos_hint: {'center_x': .5, 'center_y': .39}
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    MDList:
+                        height: self.minimum_height * 1.5
+                        size_hint_y: None
+                        bar_width: 30
+                        
+                        OneLineAvatarListItem:
+                            text: 'Cekinjenlik'
+                            font_size: '10sp'
+                            on_release: root.go_shy()
+
+                        OneLineAvatarListItem:
+                            text: 'Otizm'
+                            on_release: root.go_otism()
+
+                        OneLineAvatarListItem:
+                            text: 'Asperger sendromy'
+                            on_release: root.go_asperger()
+
+                        OneLineAvatarListItem:
+                            text: 'Sizoid hasiyet'
+                            on_release: root.go_schizoid()
+                                
+                        OneLineAvatarListItem:
+                            text: 'Pasiw agresiwlik'
+                            on_release: root.go_agresive()
+
+                        OneLineAvatarListItem:
+                            text: 'Paranoid hasiyet'
+                            on_release: root.go_paranoid()
+
+                        OneLineAvatarListItem:
+                            text: 'Histriyoniki hasiyet'
+                            on_release: root.go_histrionic()
+
+                        OneLineAvatarListItem:
+                            text: 'Narsistlik'
+                            on_release: root.go_narcissism()
+
+                        OneLineAvatarListItem:
+                            text: 'Mazosizm'
+                            on_release: root.go_mazochism()
+
+                        OneLineAvatarListItem:
+                            text: 'Depresif hasiyet'
+                            on_release: root.go_depresive()
+
+                        OneLineAvatarListItem:  
+                            text: 'Antisosyal hasiyet'
+                            on_release: root.go_antisocial()
+
+                        OneLineAvatarListItem:
+                            text: 'Borderline hasiyet'
+                            on_release: root.go_borderline()
+
+                        OneLineAvatarListItem:
+                            text: 'Bakna hasiyet'
+                            on_release: root.go_dependent()
+
+                        OneLineAvatarListItem:
+                            text: 'Obesiw kompulsif hasiyet'
+                            on_release: root.go_compulsive()
+                        
+<Child>:
+    MDScreen:
+        id: child_calc_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: child_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_main()
+
+                MDScrollView:
+                    pos_hint: {'center_x': .5, 'center_y': .39}
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    MDList:
+                        height: self.minimum_height * 1.5
+                        size_hint_y: None
+                        bar_width: 30
+
+<Acne>:
+    MDScreen:
+        id: acne_calc_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: acne_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_main()
+
+                MDScrollView:
+                    pos_hint: {'center_x': .5, 'center_y': .39}
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    MDList:
+                        height: self.minimum_height * 1.5
+                        size_hint_y: None
+                        bar_width: 30
+
+<Women>:
+    MDScreen:
+        id: women_calc_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDTopAppBar:
+                    id: women_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_main()
+
+                MDScrollView:
+                    pos_hint: {'center_x': .5, 'center_y': .39}
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    MDList:
+                        height: self.minimum_height * 1.5
+                        size_hint_y: None
+                        bar_width: 30
+
+<Man>:
+    MDScreen:
+        id: man_calc_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: man_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_main()
+
+                MDScrollView:
+                    pos_hint: {'center_x': .5, 'center_y': .39}
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    MDList:
+                        height: self.minimum_height * 1.5
+                        size_hint_y: None
+                        bar_width: 30
+
+<Learn>:
+    MDScreen:
+        id: learn_calc_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: learn_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_main()
+
+                MDScrollView:
+                    pos_hint: {'center_x': .5, 'center_y': .39}
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    MDList:
+                        height: self.minimum_height * 1.5
+                        size_hint_y: None
+                        bar_width: 30
+
+<Battle>:
+    MDScreen:
+        id: battle_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: battle_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_main()
+
+                MDScrollView:
+                    pos_hint: {'center_x': .5, 'center_y': .39}
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    MDList:
+                        height: self.minimum_height * 1.5
+                        size_hint_y: None
+                        bar_width: 30
+
+<Shy>:
+    MDScreen:
+        id: shy_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: shy_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        padding: [0, 0, 0, 10]
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            on_release: app.back_characters()
+
+                        Widget:
+                            size_hint_x: None
+                            width: 195
+
+                        MDIconButton:
+                            icon: 'star-outline'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1 , 1, 1)
+                            on_release: app.add_favorite(*args)                               
+                            id: blank_comet_shy
+
+
+                MDScrollView:
+                    pos_hint: {'center_x': .5, 'center_y': .39}
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    MDList:
+                        size_hint_y: None
+                        height: self.parent.height * 2.4
+                        bar_width: 20
+                        
+                        MDGridLayout:
+                            cols: 0
+                            rows: 2
+                            size_hint_y: None
+                            height: self.minimum_height
+                            spacing: '60dp'
+                            padding: '20dp'
+
+                            MDLabel:
+                                text: '*/ Cegincenlik'
+                                font_style: 'Subtitle1'
+                                padding: [40, 0, 0, 0]
+                                font_size: 17
+
+                            MDLabel:
+                                padding: [5, 1200, 5, 0]
+                                markup: True
+                                text: 'Utanjaňlyk ilkinji gezek 1969-njy ýylda Teodor Millon tarapyndan beýan edilipdi. Utanjaň adamlar, ýaramaz täsir edip biler öýdüp, jemgyýetçilik ýygnanyşyklaryndan ýa-da islendik çärä gatnaşmakdan uzak durýarlar. \n \n Utanjaň adamlar köpçüligiň öňünde durmak, ünsi çekmek ýa-da köpçüligiň öňünde gürlemek özlerini gaty oňaýsyz duýýarlar. Örän utanjaň kategoriýa girýän adamlar köpçülikde iýmekde kynçylyk çekip bilerler. Özlerini yzygiderli synlaýarlar we beýlekiler tarapyndan nähili görülýändigini bilmek isleýärler. Nädogry zady aýdarlar we erbet görünerler öýdýärler. Käwagtlar beýleki adamyň aýdýanlaryna eýerip bilmezler, sebäbi jemgyýetden kowuljakdygy we jemgyýetde kabul edilmejekdigi bilen meşgullanýar. Utanjaň adamlar, beýlekiler tarapyndan nähili görülýändigi hakda yzygiderli gyzyklanýan adamlardyr. Olaryň öz-özüne hormat goýmagy we öz-özüne bolan söýgüsi ýeterlik däldir. Iň uly gorkusy jemgyýetden kowulmak bolsa-da, utanjaň we gorkak bolany üçin özlerini jemgyýetden daşlaşdyrýarlar. \n\n Alymlar utanjaňlygyň azyndan bölekleýin miras galan gipotezasyny goldaýan käbir genetiki maglumatlary tapdylar. \n\n [b]Alamtlary[/b]\n\n Tankytdan gorkmak;\n Jemgyýetçilik şertlerinde aşa alada we utanjaňlyk; \n Özüňi ýigrenmek; \n Başgalaryna ynanyp bilmezlik; \n Çyn ýürekden duýgulardan daşlaşmak; \n Adamlara we hadysalara aşa duýgurlyk; \n Özüňizi beýlekilerden pes görmek; \n Gatnaşyklardan gaça durmak; \n\n [b]Sebapleri[/b] \n\nUtanjaňlygyň sebäbi belli bolmasa-da, genetiki, sosial we psihologiki faktorlaryň utgaşmasy bilen baglanyşyklydyr öýdülýär. Bu näsazlyk genetiki taýdan baglanyşykly bolup biler. Hususan-da, çagalyk we ýetginjeklik döwründe başdan geçirilýän dürli aladanyň bozulmagy we utanjaňlyk häsiýetlerini öz içine alýan özüni alyp barşyň basyşynyň täsiri hasaplanýar. Çagalyk döwründe deň-duşlaryndan emosional äsgermezlik we ret etmek hem bu bozulma howpuny ýokarlandyrýar. \n\n\n [b] Ullanylan edebiyatlar [/b] \n\n [i] wikipediya [/i]' 
+                                font_size: 15
+                                
+
+<Otism>:
+    MDScreen:
+        id: otsim_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: otism_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        padding: [0, 0, 0, 10]
+                        
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            on_release: app.back_characters()
+
+                        Widget:
+                            size_hint_x: None
+                            width: 195
+
+                        MDIconButton:
+                            id: blank_comet_otism
+                            icon: 'star-outline'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1 , 1, 1)
+                            on_release: app.add_favorite(*args)                               
+
+
+<Asperger>:
+    MDScreen:
+        id: asperger_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: asperger_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+
+<Schizoid>:
+    MDScreen:
+        id: schizoid_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: schizoid_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+
+<Agresive>:
+    MDScreen:
+        id: agresive_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: agresive_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+
+<Paranoid>:
+    MDScreen:
+        id: paranoid_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: paranoid_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+
+<Histrionic>:
+    MDScreen:
+        id: histroionc_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: histrionic_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+
+<Narcissism>:
+    MDScreen:
+        id: narcissism_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: narcissism_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+
+<Histrionic>:
+    MDScreen:
+        id: histroionc_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: histrionic_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+
+<Mazochism>:
+    MDScreen:
+        id: mazochism_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: mazochism_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+
+<Depresive>:
+    MDScreen:
+        id: depresive_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: depresive_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+
+<Antisocial>:
+    MDScreen:
+        id: antisocial_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: antisocial_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+
+<Compulsive>:
+    MDScreen:
+        id: compulsive_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: compulsive_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+
+<Borderline>:
+    MDScreen:
+        id: borderline_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                        
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: borderline_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+
+<Dependent>:
+    MDScreen:
+        id: dependent_md
+        on_touch_down: app.on_touch_down(*args)
+        on_touch_up: app.on_touch_up(*args)
+
+        MDScreenManager:
+            MDScreen:
+                    
+                MDNavigationLayout:
+                MDTopAppBar:
+                    id: dependent_top_app_bar
+                    pos_hint: {'top': 1}
+                    elevation: 0                    
+                    elevation: .8
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+
+                        MDIconButton:
+                            icon: 'arrow-left'
+                            theme_text_color: 'Custom'
+                            text_color: (1, 1, 1, 1)
+                            padding: [0, 0, 0, 10]
+                            on_release: app.back_characters()
+                            
