@@ -15,21 +15,9 @@ ScreenManager:
         name: 'posibility_calc_screen'
     Setting:
         name: 'setting'
-
+#############################
     Characters:
         name: 'characters'
-    Child:
-        name: 'child'
-    Acne: 
-        name: 'acne'
-    Women:
-        name: 'women'
-    Man:
-        name: 'man'
-    Learn:
-        name: 'learn'
-    Battle:
-        name: 'battle'
 
     Shy:
         name: 'shy'
@@ -59,6 +47,90 @@ ScreenManager:
         name: 'borderline'
     Dependent:
         name: 'dependent'
+###########################
+    Child:
+        name: 'child'
+
+    Attachment:
+        name: 'attachment'
+    Game_terapy:
+        name: 'game_terapy'
+    Anxiety:
+        name: 'anxiety'
+    Eq:
+        name: 'eq'
+    Early_devolop:
+        name: 'early_devolop'
+    Behavioral_problem:
+        name: 'behavioral_problem'
+    Social_devolop:
+        name: 'social_devolop'
+##################################    
+    Acne: 
+        name: 'acne'
+
+    Personal_devolop:
+        name: 'personal_devolop'
+    Social_media:
+        name: 'social_media'
+    Risk_event: 
+        name: 'risk_event'
+#####################################
+    Women:
+        name: 'women'
+    
+    Women_healthy:
+        name: 'women_healthy'
+    Women_pesonality_devolop:
+        name: 'women_personality_devolop'
+    Women_attachment:
+        name: 'women_attachment'
+    Women_durability:
+        name: 'women_durability'
+    Women_job:
+        name: 'women_job'
+######################################
+    Man:
+        name: 'man'
+
+    Man_emossional_expression: 
+        name: 'man_emossiaonal_expression'
+    Man_personal_devolop:
+        name: 'man_personal_devolop'
+    Man_risk_event:
+        name: 'man_risk_event'
+    Man_durability:
+        name: 'man_durability'
+#######################################
+    Learn:
+        name: 'learn'
+    
+    Conditioning_experiment:
+        name: 'conditioning_experiment'
+    Skinner_box:
+        name: 'skinner_box'
+    Bandura_theory:
+        name: 'bandura_theory'
+    Time_memory:
+        name: 'time_memory'
+    Emotional_memory:
+        name: 'emotional_memory'
+########################################
+    Battle:
+        name: 'battle'
+
+    PTSD:
+        name: 'ptsd'
+    Millgram_experiment:
+        name: 'millgram_experiment'
+    Mongolian: 
+        name: 'mongolian'
+    Astek:
+        name: 'astek'
+    Pelesium: 
+        name: 'pelesium'
+    
+
     
     
 <Main>:
@@ -92,15 +164,15 @@ ScreenManager:
                             line_color_normal: (.85, .85, .85, 1) 
                             icon_left_color_focus: (1, 1, 1, 1)
                             icon_left_color_normal: (1, 1, 1, 1)
-                            on_touch_down: app.find_word() 
+                            on_text: app.find_word(self.text)
 
-                        MDIconButton:
-                            icon: 'star-outline'
-                            icon_size: '20sp'
-                            icon_color: (1, 1 ,1, 1)
-                            theme_text_color: 'Custom'
-                            text_color: (1, 1, 1, 1)
-                            on_release: root.get_favorites()
+                        # MDIconButton:
+                        #     icon: 'star-outline'
+                        #     icon_size: '20sp'
+                        #     icon_color: (1, 1 ,1, 1)
+                        #     theme_text_color: 'Custom'
+                        #     text_color: (1, 1, 1, 1)
+                        #     on_release: root.get_favorites()
 
                         MDIconButton:
                             icon: 'globe-model'
@@ -544,57 +616,76 @@ ScreenManager:
                             on_release: app.back_main()
 
                 MDScrollView:
-                    size_hint_y: .89
+                    size_hint_y: .85
                     do_scroll_x: False
                     do_scroll_y: True
 
                     MDList:
-                        size_hint_y: None
-                        height: self.minimum_height
+                        spacing: dp(10)
+                        size_hint_y: .23
 
-                        OneLineListItem:                        
-                            MDGridLayout:
-                                cols: 5
-                                rows: 0
+                        MDBoxLayout:
+                            orientation: 'vertical'
 
-                                MDIconButton:
-                                    icon: 'access-point'
-                                    theme_text_color: 'Custom'
-                                    text_color: 'green'
-                                    icon_size: '20sp'
-                                    on_release: app.set_color(*args)
+                            OneLineListItem:
+                                height: dp(55)
 
+                                MDIcon:
+                                    icon: 'bell'
+                                    pos_hint: {'center_x': .1, 'center_y': .5}
+                            
 
-                                MDIconButton:
-                                    icon: 'ruler'
-                                    theme_text_color: 'Custom'
-                                    text_color: 'red'
-                                    icon_size: '20sp'
-                                    on_release: app.set_color(*args)
+                                MDSwitch:
+                                    pos_hint: {'center_x': .8, 'center_y': .3}
+                                    active: True
+                                    padding: (0, 0, 0, 10)
 
+                            OneLineListItem:    
+                                height: dp(55)
+                                MDGridLayout:
+                                    cols: 5
+                                    rows: 0
+                                    padding: (45, 0, 0, 0)
 
-                                MDIconButton:
-                                    icon: 'access-point'
-                                    theme_text_color: 'Custom'
-                                    text_color: 'purple'
-                                    icon_size: '20sp'
-                                    on_release: app.set_color(*args)
-
-
-                                MDIconButton:
-                                    icon: 'access-point'
-                                    theme_text_color: 'Custom'
-                                    text_color: 'blue'
-                                    icon_size: '20sp'
-                                    on_release: app.set_color(*args)
+                                    MDIconButton:
+                                        icon: 'circle'
+                                        theme_text_color: 'Custom'
+                                        text_color: 'green'
+                                        icon_size: '20sp'
+                                        on_release: app.set_color(*args)
 
 
-                                MDIconButton:
-                                    icon: 'access-point'
-                                    theme_text_color: 'Custom'
-                                    text_color: 'orange'
-                                    icon_size: '20sp'
-                                    on_release: app.set_color(*args)
+                                    MDIconButton:
+                                        icon: 'circle'
+                                        theme_text_color: 'Custom'
+                                        text_color: 'red'
+                                        icon_size: '20sp'
+                                        on_release: app.set_color(*args)
+
+
+                                    MDIconButton:
+                                        icon: 'circle'
+                                        theme_text_color: 'Custom'
+                                        text_color: 'purple'
+                                        icon_size: '20sp'
+                                        on_release: app.set_color(*args)
+
+
+                                    MDIconButton:
+                                        icon: 'circle'
+                                        theme_text_color: 'Custom'
+                                        text_color: 'blue'
+                                        icon_size: '20sp'
+                                        on_release: app.set_color(*args)
+
+
+                                    MDIconButton:
+                                        icon: 'circle'
+                                        theme_text_color: 'Custom'
+                                        text_color: 'orange'
+                                        icon_size: '20sp'
+                                        on_release: app.set_color(*args)                 
+
 
 
 <Characters>:
@@ -635,60 +726,59 @@ ScreenManager:
                         
                         OneLineAvatarListItem:
                             text: 'Cekinjenlik'
-                            font_size: '10sp'
-                            on_release: root.go_shy()
+                            on_release: root.go_screen_child('shy')
 
                         OneLineAvatarListItem:
                             text: 'Otizm'
-                            on_release: root.go_otism()
+                            on_release: root.go_screen_child('otism')
 
                         OneLineAvatarListItem:
                             text: 'Asperger sendromy'
-                            on_release: root.go_asperger()
+                            on_release: root.go_screen_child('asperger')
 
                         OneLineAvatarListItem:
                             text: 'Sizoid hasiyet'
-                            on_release: root.go_schizoid()
+                            on_release: root.go_screen_child('schizoid')
                                 
                         OneLineAvatarListItem:
                             text: 'Pasiw agresiwlik'
-                            on_release: root.go_agresive()
+                            on_release: root.go_screen_child('agresive')
 
                         OneLineAvatarListItem:
                             text: 'Paranoid hasiyet'
-                            on_release: root.go_paranoid()
+                            on_release: root.go_screen_child('paranoid')
 
                         OneLineAvatarListItem:
                             text: 'Histriyoniki hasiyet'
-                            on_release: root.go_histrionic()
+                            on_release: root.go_screen_child('histrionic')
 
                         OneLineAvatarListItem:
                             text: 'Narsistlik'
-                            on_release: root.go_narcissism()
+                            on_release: root.go_screen_child('narcissism')
 
                         OneLineAvatarListItem:
                             text: 'Mazosizm'
-                            on_release: root.go_mazochism()
+                            on_release: root.go_screen_child('mazochism')
 
                         OneLineAvatarListItem:
                             text: 'Depresif hasiyet'
-                            on_release: root.go_depresive()
+                            on_release: root.go_screen_child('depresive')
 
                         OneLineAvatarListItem:  
                             text: 'Antisosyal hasiyet'
-                            on_release: root.go_antisocial()
+                            on_release: root.go_screen_child('antisocial')
 
                         OneLineAvatarListItem:
                             text: 'Borderline hasiyet'
-                            on_release: root.go_borderline()
+                            on_release: root.go_screen_child('borderline')
 
                         OneLineAvatarListItem:
                             text: 'Bakna hasiyet'
-                            on_release: root.go_dependent()
+                            on_release: root.go_screen_child('dependent')
 
                         OneLineAvatarListItem:
                             text: 'Obesiw kompulsif hasiyet'
-                            on_release: root.go_compulsive()
+                            on_release: root.go_screen_child('compulsive')
                         
 <Child>:
     MDScreen:
@@ -936,6 +1026,7 @@ ScreenManager:
                             width: 195
 
                         MDIconButton:
+                            id: shy_fav
                             icon: 'star-outline'
                             theme_text_color: 'Custom'
                             text_color: (1, 1 , 1, 1)
@@ -1011,6 +1102,35 @@ ScreenManager:
                             text_color: (1, 1 , 1, 1)
                             on_release: app.add_favorite(*args)                               
 
+                MDScrollView:
+                    pos_hint: {'center_x': .5, 'center_y': .39}
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    MDList:
+                        size_hint_y: None
+                        height: self.parent.height * 2.4
+                        bar_width: 20
+                        
+                        MDGridLayout:
+                            cols: 0
+                            rows: 2
+                            size_hint_y: None
+                            height: self.minimum_height
+                            spacing: '60dp'
+                            padding: '20dp'
+
+                            MDLabel:
+                                text: '*/ Otizm'
+                                font_style: 'Subtitle1'
+                                padding: [40, 0, 0, 0]
+                                font_size: 17
+
+                            MDLabel:
+                                padding: [5, 1200, 5, 0]
+                                markup: True
+                                text: 'Utanjaňlyk ilkinji gezek 1969-njy ýylda Teodor Millon tarapyndan beýan edilipdi. Utanjaň adamlar, ýaramaz täsir edip biler öýdüp, jemgyýetçilik ýygnanyşyklaryndan ýa-da islendik çärä gatnaşmakdan uzak durýarlar. \n \n Utanjaň adamlar köpçüligiň öňünde durmak, ünsi çekmek ýa-da köpçüligiň öňünde gürlemek özlerini gaty oňaýsyz duýýarlar. Örän utanjaň kategoriýa girýän adamlar köpçülikde iýmekde kynçylyk çekip bilerler. Özlerini yzygiderli synlaýarlar we beýlekiler tarapyndan nähili görülýändigini bilmek isleýärler. Nädogry zady aýdarlar we erbet görünerler öýdýärler. Käwagtlar beýleki adamyň aýdýanlaryna eýerip bilmezler, sebäbi jemgyýetden kowuljakdygy we jemgyýetde kabul edilmejekdigi bilen meşgullanýar. Utanjaň adamlar, beýlekiler tarapyndan nähili görülýändigi hakda yzygiderli gyzyklanýan adamlardyr. Olaryň öz-özüne hormat goýmagy we öz-özüne bolan söýgüsi ýeterlik däldir. Iň uly gorkusy jemgyýetden kowulmak bolsa-da, utanjaň we gorkak bolany üçin özlerini jemgyýetden daşlaşdyrýarlar. \n\n Alymlar utanjaňlygyň azyndan bölekleýin miras galan gipotezasyny goldaýan käbir genetiki maglumatlary tapdylar. \n\n [b]Alamtlary[/b]\n\n Tankytdan gorkmak;\n Jemgyýetçilik şertlerinde aşa alada we utanjaňlyk; \n Özüňi ýigrenmek; \n Başgalaryna ynanyp bilmezlik; \n Çyn ýürekden duýgulardan daşlaşmak; \n Adamlara we hadysalara aşa duýgurlyk; \n Özüňizi beýlekilerden pes görmek; \n Gatnaşyklardan gaça durmak; \n\n [b]Sebapleri[/b] \n\nUtanjaňlygyň sebäbi belli bolmasa-da, genetiki, sosial we psihologiki faktorlaryň utgaşmasy bilen baglanyşyklydyr öýdülýär. Bu näsazlyk genetiki taýdan baglanyşykly bolup biler. Hususan-da, çagalyk we ýetginjeklik döwründe başdan geçirilýän dürli aladanyň bozulmagy we utanjaňlyk häsiýetlerini öz içine alýan özüni alyp barşyň basyşynyň täsiri hasaplanýar. Çagalyk döwründe deň-duşlaryndan emosional äsgermezlik we ret etmek hem bu bozulma howpuny ýokarlandyrýar. \n\n\n [b] Ullanylan edebiyatlar [/b] \n\n [i] wikipediya [/i]' 
+                                font_size: 15
 
 <Asperger>:
     MDScreen:
@@ -1350,3 +1470,65 @@ ScreenManager:
                             padding: [0, 0, 0, 10]
                             on_release: app.back_characters()
                             
+
+<Attachment>:
+    
+<Game_terapy>:
+    
+<Anxiety>:
+    
+<Eq>:
+    
+<Early_devolop>:
+    
+<Behavioral_problem>:
+    
+<Social_devolop>:
+    
+<Personal_devolop>:
+    
+<Social_media>:
+    
+<Risk_event>:
+
+    
+<Women_healthy>:
+    
+<Women_pesonality_devolop>:
+    
+<Women_attachment>:
+    
+<Women_durability>:
+    
+<Women_job>:
+
+
+<Man_emossional_expression>:
+    
+<Man_personal_devolop>:
+    
+<Man_risk_envent>:
+    
+<Man_durability>:
+    
+
+<Conditioning_experiment>:
+    
+<Skinner_box>:
+    
+<Bandura_theroy>:
+    
+<Time_memory>:
+    
+<Emotional_memory>:
+
+
+<PTSD>:
+    
+<Millgram_experiment>:
+    
+<Mongolian>:
+    
+<Astek>:
+    
+<Pelesium>:

@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = Demo
+title = My Application
 
 # (str) Package name
 package.name = myapp
@@ -37,8 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,amqp==5.3.1,asgiref==3.8.1,async-timeout==5.0.1,billiard==4.2.1,buildozer==1.5.0,cairocffi==1.7.1,CairoSVG==2.7.1,celery==5.4.0,certifi==2024.12.14,cffi==1.17.1,charset-normalizer==3.4.0,click==8.1.8,click-didyoumean==0.3.1,click-plugins==1.1.1,click-repl==0.3.0,cron-descriptor==1.4.5,cssselect2==0.7.0,Cython==3.0.11,defusedxml==0.7.1,distlib==0.3.9,dj-rest-auth==7.0.0,Django==4.2.17,django-allauth==65.3.0,django-celery-beat==2.7.0,django-rest-auth==0.9.5,django-timezone-field==7.0,djangorestframework==3.15.2,djangorestframework-simplejwt==5.3.1,dnspython==2.7.0,docutils==0.21.2,filelock==3.16.1,filetype==1.2.0,hupper==1.12.1,idna==3.10,Jinja2==3.1.5,Kivy==2.3.0,Kivy-Garden==0.1.5,kivymd==1.2.0,kombu==5.4.2,MarkupSafe==3.0.2,mongoengine==0.29.1,PasteDeploy==3.1.0,pexpect==4.9.0,pillow==11.0.0,plaster==1.1.2,plaster-pastedeploy==1.0.1,platformdirs==4.3.6,player==0.6.1,prompt_toolkit==3.0.48,ptyprocess==0.7.0,pycparser==2.22,Pygments==2.18.0,PyJWT==2.10.1,pymongo==4.10.1,pyramid==2.0.2,pyramid_jinja2==2.10.1,python-crontab==3.2.0,python-dateutil==2.9.0.post0,redis==5.2.1,requests==2.32.3,sh==2.1.0,six==1.17.0,sqlparse==0.5.3,tinycss2==1.4.0,translationstring==1.4,typing_extensions==4.12.2,tzdata==2024.2,urllib3==2.2.3,venusian==3.1.1,vine==5.1.0,virtualenv==20.28.0,wcwidth==0.2.13,webencodings==0.5.1,WebOb==1.8.9,zope.deprecation==5.0,zope.interface==7.2
-
+requirements = python3,kivy
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
